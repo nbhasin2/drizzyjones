@@ -13,21 +13,12 @@ class GameViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.initializeScene()
+    }
+    
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
 
-        if let scene = GameScene(fileNamed:"GameScene") {
-            // Configure the view.
-            let skView = self.view as! SKView
-            skView.showsFPS = true
-            skView.showsNodeCount = true
-            
-            /* Sprite Kit applies additional optimizations to improve rendering performance */
-            skView.ignoresSiblingOrder = true
-            
-            /* Set the scale mode to scale to fit the window */
-            scene.scaleMode = .AspectFill
-            
-            skView.presentScene(scene)
-        }
     }
 
     override func shouldAutorotate() -> Bool {
@@ -49,5 +40,26 @@ class GameViewController: UIViewController {
 
     override func prefersStatusBarHidden() -> Bool {
         return true
+    }
+    
+    // Scene Intializer
+    
+    func initializeScene()
+    {
+        if let scene = GameScene(fileNamed:"GameScene") {
+            // Configure the view.
+            var skView = self.view as! SKView
+            skView.showsFPS = true
+            skView.showsNodeCount = true
+            skView.scene?.size = skView.bounds.size
+            
+            /* Sprite Kit applies additional optimizations to improve rendering performance */
+            skView.ignoresSiblingOrder = true
+            
+            /* Set the scale mode to scale to fit the window */
+            scene.scaleMode = .ResizeFill
+            
+            skView.presentScene(scene)
+        }
     }
 }

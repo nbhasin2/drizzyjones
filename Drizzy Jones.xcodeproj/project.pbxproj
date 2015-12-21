@@ -406,6 +406,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "Drizzy Jones/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.epicara.Drizzy-Jones";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -417,6 +418,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "Drizzy Jones/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.epicara.Drizzy-Jones";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -492,6 +494,7 @@
 				1995F8DA1C2603D700DBA278 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1995F8DB1C2603D700DBA278 /* Build configuration list for PBXNativeTarget "Drizzy JonesTests" */ = {
 			isa = XCConfigurationList;
@@ -500,6 +503,7 @@
 				1995F8DD1C2603D700DBA278 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1995F8DE1C2603D700DBA278 /* Build configuration list for PBXNativeTarget "Drizzy JonesUITests" */ = {
 			isa = XCConfigurationList;
@@ -508,6 +512,7 @@
 				1995F8E01C2603D700DBA278 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
