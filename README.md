@@ -1,6 +1,9 @@
 # drizzyjones
+
 Playing around with some game dev. Created this just for fun. 
-Needs code cleanup. 
+
+##### Needs code cleanup. Don't judge. 
+
 Time Spent - Few Hours 
 
 
