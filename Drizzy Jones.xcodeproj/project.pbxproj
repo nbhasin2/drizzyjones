@@ -16,6 +16,7 @@
 		1995F8BE1C2603D700DBA278 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1995F8BC1C2603D700DBA278 /* LaunchScreen.storyboard */; };
 		1995F8C91C2603D700DBA278 /* Drizzy_JonesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1995F8C81C2603D700DBA278 /* Drizzy_JonesTests.swift */; };
 		1995F8D41C2603D700DBA278 /* Drizzy_JonesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1995F8D31C2603D700DBA278 /* Drizzy_JonesUITests.swift */; };
+		19C8C7A41C287B2A00BFBE7E /* SKSimpleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C8C7A31C287B2A00BFBE7E /* SKSimpleButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		1995F8CF1C2603D700DBA278 /* Drizzy JonesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Drizzy JonesUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1995F8D31C2603D700DBA278 /* Drizzy_JonesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Drizzy_JonesUITests.swift; sourceTree = "<group>"; };
 		1995F8D51C2603D700DBA278 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		19C8C7A31C287B2A00BFBE7E /* SKSimpleButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKSimpleButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +105,7 @@
 			children = (
 				1995F8AF1C2603D700DBA278 /* AppDelegate.swift */,
 				1995F8B11C2603D700DBA278 /* GameScene.sks */,
+				19C8C7A31C287B2A00BFBE7E /* SKSimpleButton.swift */,
 				1995F8B31C2603D700DBA278 /* GameScene.swift */,
 				1995F8B51C2603D700DBA278 /* GameViewController.swift */,
 				1995F8B71C2603D700DBA278 /* Main.storyboard */,
@@ -266,6 +269,7 @@
 				1995F8B41C2603D700DBA278 /* GameScene.swift in Sources */,
 				1995F8B61C2603D700DBA278 /* GameViewController.swift in Sources */,
 				1995F8B01C2603D700DBA278 /* AppDelegate.swift in Sources */,
+				19C8C7A41C287B2A00BFBE7E /* SKSimpleButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
