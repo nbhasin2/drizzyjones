@@ -14,9 +14,9 @@ class GameScene: SKScene {
     var score = 0
     var health = 5
     var gameOver : Bool?
-    let maxNumberOfShips = 10
-    var currentNumberOfShips : Int?
-    var timeBetweenShips : Double?
+    let maxNumberOfbells = 10
+    var currentNumberOfbells : Int?
+    var timeBetweenbells : Double?
     var moverSpeed = 7.5
     let moveFactor = 1.05
     var now : NSDate?
@@ -26,6 +26,7 @@ class GameScene: SKScene {
     let background = SKSpriteNode(imageNamed: "Jones")
     var isFirstTimeLaunch = true
     var button: SKNode?
+    var onGameOverScreen = false
     
     /*
     Entry point into our scene
@@ -49,8 +50,8 @@ class GameScene: SKScene {
         
         score = 0
         gameOver = false
-        currentNumberOfShips = 0
-        timeBetweenShips = 1.0
+        currentNumberOfbells = 0
+        timeBetweenbells = 1.0
         moverSpeed = 5.0
         health = 5
         nextTime = NSDate()
@@ -86,34 +87,34 @@ class GameScene: SKScene {
             let constX = UInt32((self.view?.frame.width)!) //1024
             
             now = NSDate()
-            if (currentNumberOfShips < maxNumberOfShips &&
+            if (currentNumberOfbells < maxNumberOfbells &&
                 now?.timeIntervalSince1970 > nextTime?.timeIntervalSince1970 &&
                 health > 0){
                     
-                    nextTime = now?.dateByAddingTimeInterval(NSTimeInterval(timeBetweenShips!))
+                    nextTime = now?.dateByAddingTimeInterval(NSTimeInterval(timeBetweenbells!))
                     let newX = Int(arc4random()%constX)
                     let newY = Int(self.frame.height+10)
                     let p = CGPoint(x:newX,y:newY)
                     let destination =  CGPoint(x: CGFloat(newX), y: CGFloat(0.0))
                     
-                    createShip(p, destination: destination)
+                    createbell(p, destination: destination)
                     
                     moverSpeed = moverSpeed/moveFactor
-                    timeBetweenShips = timeBetweenShips!/moveFactor
+                    timeBetweenbells = timeBetweenbells!/moveFactor
             }
-            checkIfShipsReachTheBottom()
+            checkIfbellsReachTheBottom()
             checkIfGameIsOver()
         }
         
     }
     
     /*
-    Creates a ship
+    Creates a bell
     Rotates it 90º
     Adds a mover to it go downwards
-    Adds the ship to the scene
+    Adds the bell to the scene
     */
-    func createShip(p:CGPoint, destination:CGPoint) {
+    func createbell(p:CGPoint, destination:CGPoint) {
         let sprite = SKSpriteNode(imageNamed:"Dumbbell")
         sprite.name = "Destroyable"
         sprite.xScale = 0.5
@@ -127,7 +128,7 @@ class GameScene: SKScene {
         let rotationAction = SKAction.rotateToAngle(CGFloat(3.142), duration: 0)
         sprite.runAction(SKAction.repeatAction(rotationAction, count: 0))
         
-        currentNumberOfShips?+=1
+        currentNumberOfbells?+=1
         self.addChild(sprite)
     }
     
@@ -142,15 +143,11 @@ class GameScene: SKScene {
             if let theName = self.nodeAtPoint(location).name {
                 if theName == "Destroyable" {
                     self.removeChildrenInArray([self.nodeAtPoint(location)])
-                    currentNumberOfShips?-=1
+                    currentNumberOfbells?-=1
                     score+=1
                 }
             }
-            if (gameOver==true)
-            {
-                
-            }
-            else if (isFirstTimeLaunch){
+            if (isFirstTimeLaunch){
                 initializeValues()
                 self.isFirstTimeLaunch = false
             }
@@ -164,9 +161,14 @@ class GameScene: SKScene {
             let location = touch.locationInNode(self)
             // Check if the location of the touch is within the button's bounds
             
-            if ((button?.containsPoint(location)) != nil) {
-                print("tapped!")
-                initializeValues()
+            if (onGameOverScreen==true)
+            {
+                if ((button?.containsPoint(location)) != nil) {
+                    print("tapped!")
+                    initializeValues()
+                    onGameOverScreen = false
+                }
+                
             }
         }
     }
@@ -184,13 +186,13 @@ class GameScene: SKScene {
     }
     
     /*
-    Checks if an enemy ship reaches the bottom of our screen
+    Checks if an enemy bell reaches the bottom of our screen
     */
-    func checkIfShipsReachTheBottom(){
+    func checkIfbellsReachTheBottom(){
         for child in self.children {
             if(child.position.y == 0){
                 self.removeChildrenInArray([child])
-                currentNumberOfShips?-=1
+                currentNumberOfbells?-=1
                 health -= 1
             }
         }
@@ -224,6 +226,8 @@ class GameScene: SKScene {
         button!.position = CGPoint(x:CGRectGetMidX(self.frame), y:CGRectGetMidY(self.frame));
 
         self.addChild(button!)
+        
+        onGameOverScreen = true
     }
     
     
